@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace EscolarMusicApp
 {
-    public partial class Form1 : Form
+    public partial class FrmAluno : Form
     {
-        public Form1()
+        public FrmAluno()
         {
             InitializeComponent();
         }
@@ -36,11 +36,11 @@ namespace EscolarMusicApp
 
         private void button2_Click(object sender, EventArgs e)
         {
-            listBox2.Items.Clear();
+            Lista.Items.Clear();
             Aluno aluno = new Aluno();
             foreach (var item in aluno.ListarTodos())
             {
-                listBox2.Items.Add(item.Id + " - " + item.Nome + " - " + item.Email + " - " + item.DataCadastro);
+                Lista.Items.Add(item.Id + " - " + item.Nome + " - " + item.Email + " - " + item.DataCadastro);
             }
         }
         private void LimparCampos()

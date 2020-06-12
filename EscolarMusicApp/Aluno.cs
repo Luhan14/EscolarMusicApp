@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using Renci.SshNet;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,8 +9,8 @@ using System.Threading.Tasks;
 namespace EscolarMusicApp
 {
     public class Aluno
-    {
-        public int Id { get; set; } //propriedade
+    {// CRC - Colaboração responsabilidade Classe
+        public int Id { get; set; } // Propriedades
         public string Nome { get; set; }
         public string Cpf { get; set; }
         public string Sexo { get; set; }
@@ -31,7 +32,7 @@ namespace EscolarMusicApp
             Telefone = telefone;
         }
 
-        public Aluno(int id,string nome, string cpf, string sexo, string email, string telefone, DateTime dataCadastro)
+        public Aluno(int id,string nome, string cpf, string sexo, string email, string telefone, DateTime datacadastro)
         {
             Id = id;
             Nome = nome;
@@ -39,7 +40,7 @@ namespace EscolarMusicApp
             Sexo = sexo;
             Email = email;
             Telefone = telefone;
-            DataCadastro = dataCadastro;
+            DataCadastro = datacadastro;
         }
 
         public bool EfetuarLogin(Aluno aluno)
@@ -63,7 +64,7 @@ namespace EscolarMusicApp
             MySqlCommand cmd = Banco.AbriConexao();
             cmd.CommandText = "update tb_aluno set nome_aluno=@nome, sexo_aluno = @sexo, telefone_aluno=@telefone where id_aluno=@id";
             cmd.Parameters.Add("@nome", MySqlDbType.VarChar).Value = aluno.Nome;
-            cmd.Parameters.Add("@cpf", MySqlDbType.VarChar).Value = aluno.Id;
+            cmd.Parameters.Add("@id", MySqlDbType.VarChar).Value = aluno.Id;
             cmd.Parameters.Add("@sexo", MySqlDbType.VarChar).Value = aluno.Sexo;
             cmd.Parameters.Add("@telefone", MySqlDbType.VarChar).Value = aluno.Telefone;
             cmd.ExecuteNonQuery();

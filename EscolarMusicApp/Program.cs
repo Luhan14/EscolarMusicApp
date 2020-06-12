@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ConsoleApp5;
+using Microsoft.SqlServer.Server;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,6 +10,7 @@ namespace EscolarMusicApp
 {
     static class Program
     {
+        public static Usuario usuarioLogado;
         /// <summary>
         /// Ponto de entrada principal para o aplicativo.
         /// </summary>
@@ -16,7 +19,7 @@ namespace EscolarMusicApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new FrmPrincipal());// define o Form inicial...
         }
     }
 }
